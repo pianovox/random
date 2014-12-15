@@ -1,37 +1,29 @@
-int randx=0;
-int randy=0;
-int howHigh=100;
-int howMany=0;
+int var=0;
+int howHigh=20;
+int gotOne=0;
+int randXStored= int(random(9));
 
 void setup() {
   size(400, 400);
+  background(255, 255, 255);
 }
 
 void draw() {
-  fill(255 );
-  rect(150, 150, 20, 20);
 
-//  for (int i=0; i<howHigh; i=i++) {
-//    if (howMany<5) {
-//
-//      randx=int(random(0, 9));
-//      int randStored= randx;
-//
-//      randy=int(random(0, 9));
-//
-//      if (randStored == randy) {
-//        howMany=howMany+1;
-//      }
-//    }
-//    else {
-//      
-//      println("i= " +i );
-//      println("howMany= " howMany );
-//      
-//    
-//
-//  }
-//  
-//  
-//  
+  for (int i=0; i<howHigh; i++) {
+    if (i==howHigh)
+    {
+      println("i= "+i);
+    }
+    println("randXStored= " +randXStored );
+    
+    int randX=int(random(9));
+    println("randX      = "+randX );
+
+    if (randX==randXStored) {
+      gotOne=gotOne+1;
+      println("GOT ONE!= "+gotOne );
+    }
+    int randXStored=randX;
+  }
 }
