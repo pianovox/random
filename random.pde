@@ -1,33 +1,33 @@
-// Inspired by Zan :) I want to count how many times
 // identical random numbers are generated in a row
 
-
-int howHigh=10;  //how many numbers to generate
-
-
-int seed= int(random(9));  //gotta start somewhere...
-int newRandStored=0;
-int gotOne=0; //did I get an identical pair?
+int howHigh=100;  //how many numbers to generate
+int randStored=int(random(0, 9));
+int gotOne=1; //did I get an identical pair?
 int gotOneStored=0;
-int status=0;
+int total=0;
+int streak=0; 
 
 void setup() {
-  size(1000, 400);
+  size(200, 200);
   background(255, 255, 255);
 
-
-  for (int i=0; i<howHigh; i++) {    //makes a loop
-    println(i);                      //prints loop number
-    int newRand=int(random(9));      //generates a new random
-    newRandStored=newRand;           //stores the new number
-    if (newRand==seed) {             //compares against seed and
-      gotOne++;                      //increments gotOne if it's the same
-      if (gotOne>gotOneStored) {     //if gotOne is biggest to date 
-        gotOneStored=gotOne;         //gotOneisSTORED
-        println("gotOne =" +gotOne );//and logged
-      } else {
-        gotOne=0;                    //or else it's reset. WHERE IN THE LOOP DOES THIS GO?
+  for (int i=0; i<howHigh; i++) {   //makes a loop
+    int rand=int(random(0, 9));     //generates a new random
+    println(rand);                  //prints it
+    if (rand==randStored) {         //compares against seed and
+      gotOne++;                     //increments gotOne if it's the same
+      total++;
+      if (gotOne>streak) {
+        streak=gotOne;
       }
+      println("GOT ONE!!!    "+gotOne + " " +total);
+    } else {
+      gotOne=0;                      //or else it's reset. WHERE IN THE LOOP DOES THIS GO?
+      randStored=rand;
     }
   }
+  println("LONGEST STREAK = "+streak);
+}
+
+void draw() {
 }
